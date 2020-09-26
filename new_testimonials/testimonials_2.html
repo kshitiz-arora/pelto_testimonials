@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="test_2.css">
+    </head>
+    <body>
+        <div class="row" style="padding-top: 0px; padding-bottom: 20px; background-color: #2597d5" align="center">
+            <div class="col-sp">
+                <!--<h4 class="head4">---Testimonials---</h2>-->
+                <h2 class="head2">TESTIMONIALS</h2>
+            </div>
+            <div class="slideshow-container">
+                <div class="button-col">
+                    <a class="prev" onclick="plusSlides(-1)"><span>&#10094;</span></a>
+                </div>
+                
+                <div class="col-1">
+                    <div class="tm-text">
+                    <img id="img_1" class="rounded-circle" alt="Starring">
+                    <h6 id="name_1" class="name"></h6>
+                    <p id="city_1" class="city"></p>
+                    <hr style="height: 2px; background-color: #2597d5; margin-top: 25px; width: 30%">
+                    <p id="rev_1"></p>
+                    </div>
+                </div>
+                
+                <div class="button-col">
+                    <a class="next" onclick="plusSlides(1)"><span>&#10095;</span></a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <script type="text/javascript">
+
+            images = ["https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/1.jpg", "https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/2.jpg", "https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/3.jpg", 
+                    "https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/2.jpg", "https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/3.jpg", "https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/1.jpg", 
+                    "https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/3.jpg", "https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/1.jpg", "https://d1c2wrc0o6t4ti.cloudfront.net/Testimonials/2.jpg"];
+
+            names = ["Kumar Nikale", "Ananya Rajagopal", "Anderson Skhemlang", 
+                    "alpha", "beta", "gamma", 
+                    "html", "css", "bootstrap"];
+
+            cities = ["Bangalore", "Sunnyvale, CA", "Shillong", 
+                    "ropar", "roorkee", "mandi", 
+                    "LA", "DC", "NY"];
+
+            reviews = ["TheVerb has made learning the choreography fun and easy. The interface is super-friendly and the use of switch view feature makes it a lot easier.", 
+                    "The free classes give a very good idea of what to expect. The section wise breakdown lets you learn varies styles even if you have not tried them before.", 
+                    "I live in Shillong where I do not have access to quality urban dance classes; Online classes at The Verb made it a lot easier for me at a much affordable price.", 
+                    "1 lorem ipsum lorem ipsum lorem ipsumlorem ipsum", "2 lorem ipsum lorem ipsum lorem ipsumlorem ipsum", "3 lorem ipsum lorem ipsum lorem ipsumlorem ipsum", 
+                    "review 1", "review 2", "review 3"];
+
+            var img1 = document.getElementById("img_1");
+            
+            var name1 = document.getElementById("name_1");
+            
+            var city1 = document.getElementById("city_1");
+            
+            var rev1 = document.getElementById("rev_1");
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+              slideIndex+=n;
+              if (slideIndex==4) {
+                  slideIndex = 1;
+              }
+              else if (slideIndex==0) {
+                  slideIndex = 3;
+              }
+              showSlides(slideIndex);
+            }
+
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var dots = document.getElementsByClassName("dot");
+
+                img1.src = images[n-1];
+
+                var str1 = names[n-1];                
+                name1.innerHTML = str1;
+                
+                var str1 = cities[n-1];
+                city1.innerHTML = str1;
+
+                var str1 = reviews[n-1];
+                rev1.innerHTML = str1;
+
+                for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+                }
+              
+                dots[slideIndex-1].className += " active";
+            }
+        </script>
+    </body>
+</html>
